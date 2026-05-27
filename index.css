@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Inter:wght@300;400;500;600;700;850;900&family=JetBrains+Mono:wght@400;750&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Tajawal", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+/* Custom animation timings and print layouts for certificates */
+@layer utilities {
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+}
+
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #visual-accredited-certificate, #visual-accredited-certificate * {
+    visibility: visible;
+  }
+  #visual-accredited-certificate {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    border: 8px double #b45309 !important;
+    background: white !important;
+    color: black !important;
+    padding: 2.5rem !important;
+  }
+  #visual-accredited-certificate button {
+    display: none !important;
+  }
+}
+
